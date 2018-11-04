@@ -4,12 +4,17 @@ heapq library for implementing the binary min heap which is used in the algorith
 I convert the request to a bs4 data type. After that I use the find_all function to extract the salary data of all players. I then
 initialize the array which contains the 125 highest salaries of the players in the data set. From there, I iterate through all the elements
 in SalaryString, the variable that contains all of the salaries in string format, converting each element to an integer using the defined
-splice function and comparing it with the first (smallest) element in the min heap. If the current element is greater than the smallest 
-element in the heap it means that the current heap is not representative of the top 125 largest salaries in the list which leads to a call
-to the heappop function followed by a heappush of the current element. Finally, Giving an approximate run-time, counting integer 
-comparisons and swaps as operations, we have that this algorithm runs at O(N) where N is the number of elements in the data set 
+splice function and typecast, then comparing it with the first (smallest) element in the min heap. If the current element is greater than 
+the smallest element in the heap it means that the current heap is not representative of the top 125 largest salaries in the list which 
+leads to a call to the heappop function followed by a heappush of the current element. Finally, giving an approximate run-time, counting 
+integer comparisons and swaps as operations, we have that this algorithm runs at O(N) where N is the number of elements in the data set 
 (SalaryString in this case). If we were to be more specific, there is also O(n log2 n) contribution to the run-time, where n is 125 due to
 calls to heappop and heappush but since n << N this is a minor contribution. As an aside, I assumed that the data entries on the site would
 only contain '$'  ',' or digits and that valid entries began with a dollar sign and had non-zero length. 
 
 INSTRUCTIONS TO EXECUTE THIS PROGRAM:
+1. Copy PhilliesQb.py to text editor and save
+2. Open Command Prompt (Windows) change to directory in which program was saved
+3. run: python PhilliesQb.py
+NOTE:
+Machine must have downloaded aforementioned libraries. Code was written in Python 3.7
