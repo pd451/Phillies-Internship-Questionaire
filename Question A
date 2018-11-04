@@ -1,0 +1,23 @@
+To begin with, the first for loop can be removed because it is redundant. Its purpose is to create a reverse of the string which is then 
+used in character-to-character comparison. Instead, the functionality can be condensed into one loop by replacing r[x] in the second loop 
+with s[len(s)-x-1] and removing the first loop altogether. This reduces run time. Moreover, the if statement in the second loop assigns t
+he variable x to the value true despite the fact that x is used as an indexing variable in the for loop. This would ve an error 
+To combat this, the if statement should be as follows: if not s[x] == s[len(s)-x-1] return false. If after the entire loop everything is 
+clear, then return true. A recursive approach can also be taken in which a base is that if a string has length 0 or 1 we return true, else 
+we compare the first and last characters of the string.If they are the same, we call the function again with substring that does not have 
+the first and last characters of the original string. Concretely, 
+
+Iterative Approach:
+def is_palindrome(s):
+	for x in range(0,len(s)):
+		if not s[x] == s[len(s)-x-1]:
+			return False
+	return True
+
+Recursive Approach:
+def is_palindrome(s):
+	if len(s) == 0 or len(s) == 1:
+		return True
+	if not s[0] == s[len(s)-1]:
+		return False
+	return is_palindrome(s[1:len(s)-1])
